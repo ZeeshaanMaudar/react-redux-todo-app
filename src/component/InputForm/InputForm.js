@@ -9,16 +9,16 @@ class InputField extends Component {
     this.setState({content: event.target.value});
   }
 
-  submitValueHandler = event => {
+  addValueHandler = event => {
     event.preventDefault();
-    this.props.addNewTodo(this.state);
+    this.props.submitValue(this.state);
     this.setState({content: ''});
   }
 
   render() {
     return (
       <div>
-        <form onSubmit={this.submitValueHandler}>
+        <form onSubmit={this.addValueHandler}>
           <input
             type='text'
             placeholder='Insert new todo here'

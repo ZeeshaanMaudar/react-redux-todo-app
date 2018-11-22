@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TodoList from './component/TodoList/TodoList';
-import InputField from './component/InputField/InputField';
+import InputForm from './component/InputForm/InputForm';
 
 class App extends Component {
   state = {
@@ -20,7 +20,7 @@ class App extends Component {
     this.setState({todos: todos});
   }
 
-  addTodo = newTodo => {
+  addHandler = newTodo => {
     newTodo.id = Math.random();
     const todos = [...this.state.todos, newTodo];
     this.setState({todos: todos});
@@ -30,7 +30,7 @@ class App extends Component {
     return (
       <div>
         <h1>A Simple Todo App</h1>
-        <InputField addNewTodo={this.addTodo} />
+        <InputForm submitValue={this.addHandler} />
         <TodoList todos={this.state.todos} delete={this.deleteHandler} />
       </div>
     );
